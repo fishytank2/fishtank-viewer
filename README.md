@@ -13,6 +13,15 @@
      cd fishtank-viewer
      ```
 
+- **Alternatively, download the ZIP file:**
+  - Go to the repository page in your web browser.
+  - Click the green "Code" button and select "Download ZIP".
+  - Extract the downloaded ZIP file to a location of your choice.
+  - Open your terminal or command prompt and navigate to the extracted folder:
+  ```bash
+  cd path/to/extracted/fishtank-viewer
+  ```
+
 2. **Install Dependencies:**
 
    - Run the following command to install the necessary dependencies:
