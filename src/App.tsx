@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useRef, memo } from "react";
 import ReactPlayer from "react-player";
 import Hls from "hls.js";
-import { Grid, Maximize2, Volume2, VolumeX } from "lucide-react";
+import {
+  Grid,
+  Maximize2,
+  Volume2,
+  VolumeX,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useInView } from "react-intersection-observer";
@@ -382,9 +389,24 @@ https://ftest.3045x.com/21aflvcz5puavd2e/index.m3u8`;
   const SingleStreamView = () => {
     if (!selectedStream) return null;
 
+    const currentIndex = streams.findIndex(
+      (stream) => stream.url === selectedStream.url
+    );
+
+    const handlePrevious = () => {
+      const previousIndex =
+        (currentIndex - 1 + streams.length) % streams.length;
+      setSelectedStream(streams[previousIndex]);
+    };
+
+    const handleNext = () => {
+      const nextIndex = (currentIndex + 1) % streams.length;
+      setSelectedStream(streams[nextIndex]);
+    };
+
     return (
       <div className="p-4">
-        <div className="mb-4">
+        <div className="mb-4 flex items-center gap-2">
           <Button
             variant="outline"
             onClick={handleBackToGrid}
@@ -392,6 +414,22 @@ https://ftest.3045x.com/21aflvcz5puavd2e/index.m3u8`;
           >
             <Grid size={16} />
             Back to Grid
+          </Button>
+          <Button
+            variant="outline"
+            onClick={handlePrevious}
+            className="flex items-center gap-2"
+          >
+            <ChevronLeft size={16} />
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            onClick={handleNext}
+            className="flex items-center gap-2"
+          >
+            Next
+            <ChevronRight size={16} />
           </Button>
         </div>
         <Card className="relative">
