@@ -14,7 +14,6 @@
      ```
 
 - **Alternatively, download the ZIP file:**
-  - Go to the repository page in your web browser.
   - Click the green "Code" button and select "Download ZIP".
   - Extract the downloaded ZIP file to a location of your choice.
   - Open your terminal or command prompt and navigate to the extracted folder:
