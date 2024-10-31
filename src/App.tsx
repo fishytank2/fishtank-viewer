@@ -423,14 +423,12 @@ https://ftest.3045x.com/21aflvcz5puavd2e/index.m3u8`;
             className="flex items-center gap-2"
           >
             <ChevronLeft size={16} />
-            Previous
           </Button>
           <Button
             variant="outline"
             onClick={handleNext}
             className="flex items-center gap-2"
           >
-            Next
             <ChevronRight size={16} />
           </Button>
         </div>
