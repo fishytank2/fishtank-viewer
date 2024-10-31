@@ -228,6 +228,8 @@ const StreamViewer = () => {
     };
 
     const playlistContent = `
+#EXTINF:-1,Director Mode
+https://ft.3045x.com/9b249j7qlqu0fypg/index.m3u8
 #EXTINF:-1,Den
 https://ftest.3045x.com/d678xcnkn2slngkx/index.m3u8
 #EXTINF:-1,Den PTZ
