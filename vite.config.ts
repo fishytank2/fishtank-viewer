@@ -12,13 +12,13 @@ export default defineConfig({
   server: {
     proxy: {
       "/stream": {
-        target: "https://ftest.3045x.com",
+        target: "https://ft-hetzner.flowstreams.cx",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/stream/, ""),
         configure: (proxy, _options) => {
           proxy.on("proxyReq", (proxyReq) => {
-            proxyReq.setHeader("Origin", "https://ftest.3045x.com");
-            proxyReq.setHeader("Referer", "https://ftest.3045x.com/");
+            proxyReq.setHeader("Origin", "https://ft-hetzner.flowstreams.cx");
+            proxyReq.setHeader("Referer", "https://ft-hetzner.flowstreams.cx/");
             proxyReq.setHeader("Connection", "keep-alive");
             proxyReq.setHeader("Cache-Control", "no-cache");
           });
