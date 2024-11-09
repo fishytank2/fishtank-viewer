@@ -1,0 +1,39 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/stream/:path*",
+      "destination": "https://ft-hetzner.flowstreams.cx/:path*"
+    },
+    {
+      "source": "/yt/:path*",
+      "destination": "https://www.youtube.com/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/stream/:path*",
+      "headers": [
+        {
+          "key": "Origin",
+          "value": "https://ft-hetzner.flowstreams.cx"
+        },
+        {
+          "key": "Referer",
+          "value": "https://ft-hetzner.flowstreams.cx/"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
+}

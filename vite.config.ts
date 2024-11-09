@@ -33,7 +33,7 @@ export default defineConfig({
         target: "https://www.youtube.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/yt/, ""),
-      }
+      },
     },
   },
 });
