@@ -168,10 +168,6 @@ const StreamViewer = () => {
   const retryDelay = 5000;
 
   const convertToProxyUrl = (originalUrl: string): string => {
-    if (process.env.NODE_ENV === "production") {
-      return `/api/proxy?url=${encodeURIComponent(originalUrl)}`;
-    }
-
     try {
       const url = new URL(originalUrl);
 
