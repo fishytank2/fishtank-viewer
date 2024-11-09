@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useInView } from "react-intersection-observer";
@@ -492,11 +493,14 @@ https://ftest.3045x.com/21aflvcz5puavd2e/index.m3u8`;
   );
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto">
-        {selectedStream ? <SingleStreamView /> : <GridView />}
+    <>
+      <Analytics />
+      <div className="min-h-screen bg-gray-100">
+        <div className="container mx-auto">
+          {selectedStream ? <SingleStreamView /> : <GridView />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
