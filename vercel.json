@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    },
-    {
       "source": "/stream/:path*",
       "destination": "https://ft-hetzner.flowstreams.cx/:path*"
     },
