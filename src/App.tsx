@@ -3,7 +3,6 @@ import ReactPlayer from "react-player";
 import Hls from "hls.js";
 import {
   Grid,
-  Maximize2,
   Volume2,
   VolumeX,
   ChevronLeft,
