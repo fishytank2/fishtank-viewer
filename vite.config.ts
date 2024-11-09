@@ -11,6 +11,11 @@ export default defineConfig({
   },
   server: {
     proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        secure: false,
+      },
       "/stream": {
         target: "https://ft-hetzner.flowstreams.cx",
         changeOrigin: true,
@@ -28,12 +33,7 @@ export default defineConfig({
         target: "https://www.youtube.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/yt/, ""),
-      },
-      "/api": {
-        target: "http://localhost:3000",
-        changeOrigin: true,
-        secure: false,
-      },
+      }
     },
   },
 });
