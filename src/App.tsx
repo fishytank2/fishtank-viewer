@@ -450,44 +450,45 @@ https://ftest.3045x.com/21aflvcz5puavd2e/index.m3u8`;
   const GridView = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
       {streams.map((stream) => (
-        <Card key={stream.url} className="relative">
-          <div className="aspect-video relative">
-            {errorStates[stream.url] ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                <p className="text-red-500">Failed to load stream</p>
-              </div>
-            ) : (
-              <Thumbnail stream={stream} title={stream.title} />
-            )}
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 flex justify-between items-center">
-              <span className="text-white text-sm truncate">
-                {stream.title}
-              </span>
-              <div className="flex gap-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => toggleMute(stream.url)}
-                  className="text-white hover:bg-white/20"
-                >
-                  {mutedStates[stream.url] ? (
-                    <VolumeX size={16} />
-                  ) : (
-                    <Volume2 size={16} />
-                  )}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setSelectedStream(stream)}
-                  className="text-white hover:bg-white/20"
-                >
-                  <Maximize2 size={16} />
-                </Button>
+        <div
+          key={stream.url}
+          className="relative cursor-pointer"
+          onClick={() => setSelectedStream(stream)}
+        >
+          <Card className="relative">
+            <div className="aspect-video relative">
+              {errorStates[stream.url] ? (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                  <p className="text-red-500">Failed to load stream</p>
+                </div>
+              ) : (
+                <Thumbnail stream={stream} title={stream.title} />
+              )}
+              <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 flex justify-between items-center">
+                <span className="text-white text-sm truncate">
+                  {stream.title}
+                </span>
+                <div className="flex gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevents the card click event
+                      toggleMute(stream.url);
+                    }}
+                    className="text-white hover:bg-white/20"
+                  >
+                    {mutedStates[stream.url] ? (
+                      <VolumeX size={16} />
+                    ) : (
+                      <Volume2 size={16} />
+                    )}
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        </div>
       ))}
     </div>
   );
